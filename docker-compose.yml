@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: reynir_db
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_USER=reynir
+      - POSTGRES_PASSWORD=reynir
+      - POSTGRES_DB=scraper
+    ports:
+      - 5432
+  greynir:
+    build: ./
+    container_name: greynir
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - LANG=is_IS.UTF-8
+      - GREYNIR_DB_HOST=db
+      - GREYNIR_DB_PORT=5432
+    volumes:
+      - ./start.sh:/start.sh
+    command: /start.sh
+    depends_on:
+      - db
+volumes:
+  dbdata:
