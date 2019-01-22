@@ -9,9 +9,6 @@ services:
     environment:
       - POSTGRES_USER=reynir
       - POSTGRES_PASSWORD=reynir
-      - POSTGRES_DB=scraper
-    ports:
-      - 5432
   greynir:
     build: ./
     container_name: greynir
@@ -21,7 +18,6 @@ services:
     environment:
       - LANG=is_IS.UTF-8
       - GREYNIR_DB_HOST=db
-      - GREYNIR_DB_PORT=5432
     volumes:
       - ./start.sh:/start.sh
     command: /start.sh
