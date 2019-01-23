@@ -1,11 +1,14 @@
-version: '3.7'
+version: '3'
 services:
   db:
-    image: postgres:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile-postgres
     restart: always
     container_name: reynir_db
     volumes:
       - "dbdata:/var/lib/postgresql/data"
+      - "./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"   
     environment:
       - POSTGRES_USER=reynir
       - POSTGRES_PASSWORD=reynir
@@ -18,6 +21,8 @@ services:
     environment:
       - LANG=is_IS.UTF-8
       - GREYNIR_DB_HOST=db
+      - LANGUAGE=is_IS:is
+      - FLASK_ENV=development
     volumes:
       - ./start.sh:/start.sh
     command: /start.sh

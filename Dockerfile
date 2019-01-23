@@ -8,10 +8,12 @@ WORKDIR /src/Reynir
 RUN pip install -r requirements.txt
 RUN apt-get update
 RUN apt-get install dialog apt-utils locales -y
-RUN dpkg-reconfigure locales
-RUN locale-gen is_IS.UTF-8
+RUN sed -i -e 's/# is_IS.UTF-8 UTF-8/is_IS.UTF-8 UTF-8/' /etc/locale.gen && locale-gen
+ENV LANG is_IS.UTF-8
+ENV LC_ALL is_IS.UTF-8
+ENV LANGUAGE is_IS:is
 RUN update-locale
-
+RUN dpkg-reconfigure locales
 
 
 
