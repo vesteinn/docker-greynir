@@ -20,3 +20,7 @@ This is a very early attempt at running Greynir in a docker setup.
 ## Known issues
 
 Locale needs to be fixed to Icelandic.
+
+## In progress
+
+Automatic db setup and dev environment
