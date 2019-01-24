@@ -9,7 +9,7 @@ This is a very early attempt at running Greynir in a docker setup.
 
 3. run `docker-compose up`
 
-4. Visit `localhost:5000`
+4. Visit `localhost:5050`
 
 ## Known issues
 
