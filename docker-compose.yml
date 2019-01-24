@@ -17,7 +17,7 @@ services:
     container_name: greynir
     restart: always
     ports:
-      - "5000:5000"
+      - "5050:5000"
     environment:
       - LANG=is_IS.UTF-8
       - GREYNIR_DB_HOST=db

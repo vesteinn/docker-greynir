@@ -1,7 +1,7 @@
 FROM postgres:latest
 
-RUN sed -i -e 's/# is_IS.UTF-8 UTF-8/is_IS.UTF-8 UTF-8/' /etc/locale.gen && locale-gen
+# Set the locale
+RUN localedef -i is_IS -c -f UTF-8 -A /usr/share/locale/locale.alias is_IS.UTF-8
 
 ENV LANG is_IS.UTF-8
 ENV LC_ALL is_IS.UTF-8
-
