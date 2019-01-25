@@ -11,12 +11,13 @@ This is a very early attempt at running Greynir in a docker setup.
 
 4. Visit `localhost:5050`
 
-## Known issues
+## To do
 
+Use gunicorn and nginx
 
 ## In progress
 
-Setup dev environment
+Setup dev environment - mount in Tokenizer, ReynirCorrect and ReynirPackage
 
 Add scripts to update db
 
