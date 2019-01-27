@@ -1,0 +1,44 @@
+worker_processes  auto;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    sendfile            on;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    keepalive_timeout   65;
+    types_hash_max_size 2048;
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    upstream web {
+      ip_hash;
+      server greynir:5000;
+    }
+
+    server {
+
+      listen 5050;
+      server_name localhost greynir.is;
+
+      location / {
+         proxy_set_header X-Forwarded-For $http_x_forwarded_for;
+         proxy_set_header X-Real-IP $realip_remote_addr;
+         proxy_set_header X-Proxy-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header 'Access-Control-Allow-Credentials' 'true';
+         proxy_set_header Host $http_host;
+         proxy_redirect off;
+         proxy_connect_timeout 175s;
+         proxy_read_timeout 300s;
+
+         if (!-f $request_filename) {
+           proxy_pass http://web;
+           break;
+         }
+      }
+
+    }
+}
+

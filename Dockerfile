@@ -2,7 +2,7 @@ FROM pypy:3
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
 WORKDIR /
-COPY start.sh start.sh
+COPY conf/bin/start.sh start.sh
 COPY src src
 WORKDIR /src/Reynir
 RUN apt-get update

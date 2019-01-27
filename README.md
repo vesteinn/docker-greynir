@@ -1,23 +1,19 @@
 # Greynir in a docker container
 
-This is a very early attempt at running Greynir in a docker setup.
+This setup uses nginx and gunicorn to serve the flask web app greynir
 
 ## Getting started
-1. Clone the Reynir repository under src.
+
+1. Clone the Reynir repository under src. https://github.com/vthorsteinsson/Reynir
 
 2. Install docker and docker compose if they are not installed already.
 
-3. run `docker-compose up`
+3. run `docker-compose up` or `./run-dev.sh`
 
 4. Visit `localhost:5050`
 
-## Known issues
-
-
 ## In progress
 
-Setup dev environment
+Setup dev environment - mount in Tokenizer, ReynirCorrect and ReynirPackage
 
-Add scripts to update db
-
-Setup cron mounting
+Add scripts to run scraper periodically in cron

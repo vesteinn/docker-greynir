@@ -17,16 +17,26 @@ services:
     container_name: greynir
     restart: always
     ports:
-      - "5050:5000"
+      - "5000:5000"
     environment:
       - LANG=is_IS.UTF-8
       - GREYNIR_DB_HOST=db
       - LANGUAGE=is_IS:is
       - FLASK_ENV=development
     volumes:
-      - ./start.sh:/start.sh
+      - ./conf/bin/start.sh:/start.sh
     command: /start.sh
     depends_on:
       - db
+  nginx:
+    image: nginx:latest
+    restart: always
+    container_name: reynir_nginx
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./conf/nginx/greynir:/etc/nginx/nginx.conf
+    depends_on:
+      - greynir
 volumes:
   dbdata:
