@@ -10,4 +10,4 @@ deactivate
 # Processor
 cd $REYNIR_DIR
 timeout 20m pypy3 processor.py --limit=3000
-deactivate
+

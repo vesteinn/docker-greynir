@@ -3,5 +3,5 @@ services:
   greynir:
     volumes:
       - ./conf/bin/start_dev.sh:/start.sh
-      - ./src:/src
+      - ./src:/reynir/src
 
