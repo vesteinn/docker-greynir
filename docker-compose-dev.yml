@@ -1,0 +1,7 @@
+version: '3'
+services:
+  greynir:
+    volumes:
+      - ./conf/bin/start_dev.sh:/start.sh
+      - ./src:/src
+
