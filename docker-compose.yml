@@ -23,9 +23,12 @@ services:
       - GREYNIR_DB_HOST=db
       - LANGUAGE=is_IS:is
       - FLASK_ENV=development
+      - REYNIR_DIR=/reynir/src/Reynir
     volumes:
-      - ./conf/bin/start.sh:/start.sh
-    command: /start.sh
+      - ./conf/bin:/reynir/bin
+      - ./logs:/reynir/logs
+      - ./conf/cron/tasks.cron:/var/spool/cron/crontabs/root
+    command: /reynir/bin/start.sh
     depends_on:
       - db
   nginx:

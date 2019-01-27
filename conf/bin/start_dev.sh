@@ -1,7 +1,6 @@
 #!/bin/bash
-cd /src/Reynir/
+cd $REYNIR_DIR
 pip install -r requirements.txt
-pip install gunicorn
 pypy3 scraperinit.py
 gunicorn --reload \
          --bind 0.0.0.0:5000 \
