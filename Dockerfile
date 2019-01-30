@@ -15,5 +15,6 @@ ENV LANGUAGE is_IS:is
 RUN update-locale
 RUN dpkg-reconfigure locales
 RUN pip install --upgrade pip && pip install -r requirements.txt && pip install -r ../../docker_requirements.txt
+RUN cp -r /usr/local/site-packages/reynir/ /usr/local/reynir_orig
 
 

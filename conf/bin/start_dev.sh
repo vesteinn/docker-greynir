@@ -1,7 +1,8 @@
 #!/bin/bash
 cd $REYNIR_DIR
-pip install -r requirements.txt
+cp --no-clobber -r /usr/local/reynir_orig/* /usr/local/site-packages/reynir/
 pypy3 scraperinit.py
-gunicorn --reload \
-         --bind 0.0.0.0:5000 \
-         main:app --workers 3
+gunicorn main:app \
+--workers 3 \
+--bind 0.0.0.0:5000 \
+--reload          
