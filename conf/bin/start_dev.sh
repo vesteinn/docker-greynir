@@ -1,8 +1,14 @@
 #!/bin/bash
-cd /src/Reynir/
-pip install -r requirements.txt
-pip install gunicorn
+cd $REYNIR_DIR
+
+cd ../ReynirPackage && pypy3 setup.py develop
+cd ../ReynirCorrect && pypy3 setup.py develop
+cd ../Tokenizer && pypy3 setup.py develop
+
+cd $REYNIR_DIR
 pypy3 scraperinit.py
-gunicorn --reload \
-         --bind 0.0.0.0:5000 \
-         main:app --workers 3
+
+gunicorn main:app \
+--workers 3 \
+--bind 0.0.0.0:5000 \
+--reload          

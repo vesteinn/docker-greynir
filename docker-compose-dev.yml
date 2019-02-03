@@ -1,7 +1,9 @@
 version: '3'
 services:
   greynir:
+    environment:
+      - FLASK_DEBUG=1    
     volumes:
-      - ./conf/bin/start_dev.sh:/start.sh
-      - ./src:/src
+      - ./src:/reynir/src
+    command: /reynir/bin/start_dev.sh
 

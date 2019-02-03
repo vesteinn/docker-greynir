@@ -1,0 +1,11 @@
+SHELL=/bin/bash
+PYTHONIOENCODING=utf-8
+
+# Run at 03:55 every morning
+55 3 * * * cd /reynir/logs ; tail -n 2000 runscraper.log >runscraper.new ; rm runscraper.log ; mv runscraper.new runscraper.log
+
+# Run every half hour
+0,30  * * * * /reynir/bin/runscraper.sh >> /reynir/logs/runscraper.log 2>&1
+
+# Run at 05:07 every morning to reparse articles and update the database
+7 5 * * * /reynir/bin/runreparse.sh > /reynir/logs/runreparse.log 2>&1
