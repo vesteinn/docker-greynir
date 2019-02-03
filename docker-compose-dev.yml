@@ -3,9 +3,10 @@ services:
   greynir:
     volumes:
       - ./conf/bin/start_dev.sh:/start.sh && cp /tmp/* /usr/local/site-packages/reynir/
-      - ./src/Reynir:/reynir/src/Reynir
-      - ./src/ReynirCorrect/src/reynir_correct:/usr/local/site-packages/reynir_correct
-      - ./src/ReynirPackage/src/reynir:/usr/local/site-packages/reynir
-      - ./src/Tokenizer/src/tokenizer:/usr/local/site-packages/tokenizer
+      - ./src:/reynir/src
+#      - ./src/Reynir:/reynir/src/Reynir
+#      - ./src/ReynirCorrect/src/reynir_correct:/usr/local/site-packages/reynir_correct
+#      - ./src/ReynirPackage/src/reynir:/usr/local/site-packages/reynir
+#      - ./src/Tokenizer/src/tokenizer:/usr/local/site-packages/tokenizer
 
 

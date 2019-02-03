@@ -1,17 +1,44 @@
 # Greynir in a docker container
 
-This setup uses nginx and gunicorn to serve the flask web app greynir.
+This setup uses nginx and gunicorn to serve the flask web app greynir. As such it shouldn't need many changes to be production ready but this is intended for local development at the moment an can not be recommended in a production setup.
 
-## Getting started
+You'll need to have docker installed and git in some sort of bash like shell.
 
-1. Clone the Reynir repository under src. https://github.com/vthorsteinsson/Reynir
+See https://docs.docker.com/install/
 
-2. Install docker and docker compose if they are not installed already. See https://docs.docker.com/install/
+If on Windows, https://gitforwindows.org/ should provide you with other tooling needed.
 
-3. After cloning this repository run `docker-compose up` or `./run-dev.sh` to mount in the src files.
+## Quick start
 
-4. Visit `localhost:5050`
+1. Clone the Reynir repository under src
 
-## In progress
+```
+mkdir src
+cd src
+git clone git@github.com:vthorsteinsson/Reynir.git
+```
+2. After cloning this repository run `docker-compose up` start greynir.
 
-Setup proper dev environment - mount in Tokenizer, ReynirCorrect and ReynirPackage
+3. Visit `localhost:5050`
+
+## In development
+
+You can also run Greynir using locally cloned versions of the following packages. Under `src` clone in the packages by calling
+
+```
+git clone git@github.com:vthorsteinsson/Tokenizer.git`
+git clone git@github.com:vthorsteinsson/ReynirCorrect.git`
+git clone git@github.com/vthorsteinsson/ReynirPackage
+```
+
+Then `run-dev.sh` to override the default docker-compose file and start Greynir.
+
+After you've confirmed `localhost:5050` is working as intended you can also run `run-dev.sh` to ensure the installation is working.
+
+When in development mode, gunicorn should reload any changes made to speed up development.
+
+## Further configuration
+
+For further configuration please see the file `docker-compose.yml` (and `docker-compose-dev.yml`, and the files under `conf`, if you'd like to change ports, add a certificate to nginx etc.
+
+`conf/bin/start.sh` and `/conf/bin/start_dev.sh` may also be of interest.
