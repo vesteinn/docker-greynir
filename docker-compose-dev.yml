@@ -1,12 +1,9 @@
 version: '3'
 services:
   greynir:
+    environment:
+      - FLASK_DEBUG=1    
     volumes:
-      - ./conf/bin/start_dev.sh:/start.sh && cp /tmp/* /usr/local/site-packages/reynir/
       - ./src:/reynir/src
-#      - ./src/Reynir:/reynir/src/Reynir
-#      - ./src/ReynirCorrect/src/reynir_correct:/usr/local/site-packages/reynir_correct
-#      - ./src/ReynirPackage/src/reynir:/usr/local/site-packages/reynir
-#      - ./src/Tokenizer/src/tokenizer:/usr/local/site-packages/tokenizer
-
+    command: /reynir/bin/start_dev.sh
 

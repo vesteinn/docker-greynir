@@ -1,10 +1,11 @@
 #!/bin/bash
 cd $REYNIR_DIR
-# cp --no-clobber -r /usr/local/reynir_orig/* /usr/local/site-packages/reynir/
+
 cd ../ReynirPackage && pypy3 setup.py develop
 cd ../ReynirCorrect && pypy3 setup.py develop
 cd ../Tokenizer && pypy3 setup.py develop
 
+cd $REYNIR_DIR
 pypy3 scraperinit.py
 
 gunicorn main:app \
