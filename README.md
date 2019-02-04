@@ -25,7 +25,7 @@ git clone git@github.com:vthorsteinsson/Reynir.git
 
 You can also run Greynir using locally cloned versions of the following packages. `run-dev.sh` clones the needed repositories, overrides the default docker-compose file and starts Greynir. 
 
-After you've confirmed `localhost:5050` is working as intended you can also run `run-dev.sh` to ensure the installation is working.
+After you've confirmed `localhost:5050` is working as intended you can also run `run_tests.sh` to ensure the installation is working.
 
 When in development mode, gunicorn should reload any changes made to speed up development.
 
