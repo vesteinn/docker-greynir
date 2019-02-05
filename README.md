@@ -34,3 +34,7 @@ When in development mode, gunicorn should reload any changes made to speed up de
 For further configuration please see the file `docker-compose.yml` (and `docker-compose-dev.yml`, and the files under `conf`, if you'd like to change ports, add a certificate to nginx etc.
 
 `conf/bin/start.sh` and `/conf/bin/start_dev.sh` may also be of interest.
+
+## Known issues
+
+You need to manually fetch the content under `ReynirPackage/src/reynir/resources`
