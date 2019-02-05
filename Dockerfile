@@ -7,7 +7,9 @@ COPY src /reynir/src
 COPY docker_requirements.txt /reynir/docker_requirements.txt
 WORKDIR /reynir/src/Reynir
 RUN apt-get update
-RUN apt-get install dialog apt-utils locales cron -y
+RUN apt-get install dialog apt-utils locales cron curl git -y
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+RUN apt-get install git-lfs=2.6.1 -y
 RUN sed -i -e 's/# is_IS.UTF-8 UTF-8/is_IS.UTF-8 UTF-8/' /etc/locale.gen && locale-gen
 ENV LANG is_IS.UTF-8
 ENV LC_ALL is_IS.UTF-8
