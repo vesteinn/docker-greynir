@@ -27,8 +27,6 @@ You can also run Greynir using locally cloned versions of the following packages
 
 After you've confirmed `localhost:5050` is working as intended you can also run `run_tests.sh` to ensure the installation is working.
 
-When in development mode, gunicorn should reload any changes made to speed up development.
-
 ## Further configuration
 
 For further configuration please see the file `docker-compose.yml` (and `docker-compose-dev.yml`, and the files under `conf`, if you'd like to change ports, add a certificate to nginx etc.
