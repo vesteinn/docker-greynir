@@ -7,18 +7,18 @@ cd ../Tokenizer && pypy3 setup.py develop
 cd ../ReynirPackage && pypy3 setup.py develop
 cd ../ReynirCorrect && pypy3 setup.py develop
 
-cd ../ReynirPackage
-git lfs track "*.compressed"
-git lfs track "*.bin"
-git add .gitattributes
+#cd ../ReynirPackage
+#git lfs track "*.compressed"
+#git lfs track "*.bin"
+#git add .gitattributes
 
-cd src/reynir/resources
-mkdir /root/.ssh
-touch /root/.ssh/known_hosts
-ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
+#cd src/reynir/resources
+#mkdir /root/.ssh
+#touch /root/.ssh/known_hosts
+#ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
 
-git checkout ord.compressed
-git checkout *.bin
+#git checkout ord.compressed
+#git checkout *.bin
 
 cd $REYNIR_DIR
 pypy3 scraperinit.py
