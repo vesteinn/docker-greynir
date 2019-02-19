@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ ! -d "$src" ]; then
+if [ ! -d "src" ]; then
     mkdir src
     cd src
     git clone git@github.com:vthorsteinsson/Reynir.git
