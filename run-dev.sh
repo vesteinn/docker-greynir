@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-if [ ! -d "$src" ]; then
+if [ ! -d "src" ]; then
     mkdir src
     cd src
-    git clone git@github.com:vthorsteinsson/Reynir.git
-    git clone git@github.com:vthorsteinsson/Tokenizer.git
-    git clone git@github.com:vthorsteinsson/ReynirCorrect.git
-    git clone git@github.com:vthorsteinsson/ReynirPackage.git
+    git clone git@github.com:mideind/Greynir.git
+    git clone git@github.com:mideind/Tokenizer.git
+    git clone git@github.com:mideind/ReynirCorrect.git
+    git clone git@github.com:mideind/ReynirPackage.git
     cd ..
 fi
   

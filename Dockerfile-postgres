@@ -1,4 +1,4 @@
-FROM postgres:latest
+FROM postgres:11
 
 # Set the locale
 RUN localedef -i is_IS -c -f UTF-8 -A /usr/share/locale/locale.alias is_IS.UTF-8

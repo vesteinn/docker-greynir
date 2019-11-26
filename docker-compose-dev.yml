@@ -5,5 +5,7 @@ services:
       - FLASK_DEBUG=1    
     volumes:
       - ./src:/reynir/src
+    stdin_open: true
+    tty: true
     command: /reynir/bin/start_dev.sh
 
