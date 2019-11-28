@@ -1,0 +1,21 @@
+version: '3'
+services:
+  modelserver:
+    image: test-tensorflow-serving
+    ports:
+      - 8500:8500
+      - 8501:8501
+    volumes:
+      - ./conf/models:/models
+    command: tensorflow_model_server --port=8500 --rest_api_port=8501 --model_config_file=/models/models.conf
+    depends_on:
+      - greynir
+  nnserver:
+    image: nnserver
+    ports:
+      - 5005:5000
+    environment:
+      - MS_HOST=modelserver
+      - MS_PORT=8501
+    depends_on:
+      - modelserver

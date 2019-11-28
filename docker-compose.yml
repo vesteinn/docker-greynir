@@ -1,17 +1,5 @@
 version: '3'
 services:
-  db:
-    build:
-      context: .
-      dockerfile: Dockerfile-postgres
-    restart: always
-    container_name: reynir_db
-    volumes:
-      - "dbdata:/var/lib/postgresql/data"
-      - "./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
-    environment:
-      - POSTGRES_USER=reynir
-      - POSTGRES_PASSWORD=reynir
   greynir:
     build: ./
     container_name: greynir
@@ -41,5 +29,3 @@ services:
       - ./conf/nginx/greynir:/etc/nginx/nginx.conf
     depends_on:
       - greynir
-volumes:
-  dbdata:

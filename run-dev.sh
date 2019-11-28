@@ -9,6 +9,6 @@ if [ ! -d "src" ]; then
     git clone git@github.com:mideind/ReynirPackage.git
     cd ..
 fi
-  
-docker-compose -f docker-compose.yml -f docker-compose-dev.yml down
-docker-compose -f docker-compose.yml -f docker-compose-dev.yml up
+
+docker-compose -f docker-compose.yml -f docker-compose-dev.yml -f docker-compose-db.yml -f docker-compose-nn.yml down
+docker-compose -f docker-compose.yml -f docker-compose-dev.yml -f docker-compose-db.yml -f docker-compose-nn.yml up

@@ -21,7 +21,7 @@ cd ../ReynirCorrect && pypy3 setup.py develop
 #git checkout *.bin
 
 cd $REYNIR_DIR
-pypy3 scraper.py --init
+#pypy3 scraper.py --init
 
 gunicorn main:app \
 --workers 3 \
