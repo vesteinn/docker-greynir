@@ -19,3 +19,8 @@ services:
       - MS_PORT=8501
     depends_on:
       - modelserver
+  greynir:
+    environment:
+      - NN_TRANSLATE_HOST=nnserver
+      - NN_TRANSLATE_PORT=5000
+      - NN_TRANSLATE_ENABLED=1
