@@ -3,6 +3,7 @@ services:
   greynir:
     environment:
       - FLASK_DEBUG=1
+      - FLASK_ENV=development
     volumes:
       - ./src:/reynir/src
     stdin_open: true

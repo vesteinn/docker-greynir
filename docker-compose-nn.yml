@@ -1,7 +1,7 @@
 version: '3'
 services:
   modelserver:
-    image: test-tensorflow-serving
+    image: tensorflow/serving
     ports:
       - 8500:8500
       - 8501:8501
@@ -19,8 +19,13 @@ services:
       - MS_PORT=8501
     depends_on:
       - modelserver
+    volumes:
+      - /Users/vesteinnsnaebjarnarson/Work/mideind/nntrainer/nnserver:/nnserver
   greynir:
     environment:
       - NN_TRANSLATE_HOST=nnserver
       - NN_TRANSLATE_PORT=5000
       - NN_TRANSLATE_ENABLED=1
+      - NN_PARSING_HOST=nnserver
+      - NN_PARSING_PORT=5000
+      - NN_PARSING_ENABLED=1

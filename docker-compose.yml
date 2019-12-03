@@ -6,23 +6,13 @@ services:
     restart: always
     ports:
       - "5000:5000"
-    environment:
-      - LANG=is_IS.UTF-8
-      - GREYNIR_DB_HOST=db
-      - LANGUAGE=is_IS:is
-      - FLASK_ENV=development
-      - REYNIR_DIR=/reynir/src/Greynir
     volumes:
-      - ./conf/bin:/reynir/bin
       - ./logs:/reynir/logs
       - ./conf/cron/tasks.cron:/var/spool/cron/crontabs/root
-    command: /reynir/bin/start.sh
-    depends_on:
-      - db
   nginx:
     image: nginx:latest
     restart: always
-    container_name: reynir_nginx
+    container_name: nginx
     ports:
       - "5050:5050"
     volumes:

@@ -11,5 +11,10 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+  greynir:
+    environment:
+      - GREYNIR_DB_HOST=db
+    depends_on:
+      - db
 volumes:
   dbdata:
