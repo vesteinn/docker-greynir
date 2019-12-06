@@ -1,6 +1,7 @@
 FROM pypy:3
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
+EXPOSE 5000
 RUN mkdir -p /reynir/logs
 COPY conf/bin /reynir/bin
 COPY docker_requirements.txt /reynir/docker_requirements.txt

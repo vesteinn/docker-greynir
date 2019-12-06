@@ -1,11 +1,9 @@
 version: '3'
 services:
   greynir:
-    build: ./
+    image: mideind/greynir:latest
     container_name: greynir
     restart: always
-    ports:
-      - "5000:5000"
     volumes:
       - ./logs:/reynir/logs
       - ./conf/cron/tasks.cron:/var/spool/cron/crontabs/root
