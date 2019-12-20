@@ -1,0 +1,18 @@
+version: '3'
+services:
+  greynir:
+    image: mideind/greynir:latest
+    container_name: greynir
+    environment:
+      - GREYNIR_DB_HOST=192.168.0.20
+      - MODE=PRODUCTION
+    extra_hosts:
+      - 192.168.0.20:192.168.0.20
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./conf/nginx/greynir:/etc/nginx/nginx.conf
+    depends_on:
+      - greynir

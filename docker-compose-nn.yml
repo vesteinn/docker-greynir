@@ -11,7 +11,7 @@ services:
     depends_on:
       - greynir
   nnserver:
-    image: nnserver
+    image: mideind/nnserver:latest
     ports:
       - 5005:5000
     environment:
@@ -19,8 +19,6 @@ services:
       - MS_PORT=8501
     depends_on:
       - modelserver
-    volumes:
-      - /Users/vesteinnsnaebjarnarson/Work/mideind/nntrainer/nnserver:/nnserver
   greynir:
     environment:
       - NN_TRANSLATE_HOST=nnserver
