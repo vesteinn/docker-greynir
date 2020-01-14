@@ -20,8 +20,6 @@ services:
       - NNSERVER_PARSING_VOCAB=parsing_tokens_191202.txt
     depends_on:
       - modelserver
-    volumes:
-      - /Users/vesteinnsnaebjarnarson/Work/mideind/nntrainer/nnserver:/nnserver
   greynir:
     environment:
       - NN_TRANSLATION_HOST=nnserver
