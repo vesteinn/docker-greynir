@@ -6,8 +6,7 @@ services:
       - FLASK_ENV=development
     volumes:
       - ./src:/reynir/src
-    stdin_open: true
-    tty: true
+      - ./conf/bin:/reynir/bin
     command: /reynir/bin/start_dev.sh
   nnserver:
     environment:

@@ -23,7 +23,12 @@ cd ../ReynirCorrect && pypy3 setup.py develop
 cd $REYNIR_DIR
 #pypy3 scraper.py --init
 
+pip install -r requirements.txt
+
 gunicorn main:app \
 --workers 3 \
 --bind 0.0.0.0:5000 \
---reload
+--reload \
+--reload-engine inotify \
+--reload-extra-file $REYNIR_DIR/nn/client.py \
+--timeout 300

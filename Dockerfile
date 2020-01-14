@@ -7,8 +7,7 @@ COPY conf/bin /reynir/bin
 COPY docker_requirements.txt /reynir/docker_requirements.txt
 RUN apt-get update
 RUN apt-get install dialog apt-utils locales cron curl libgeos-dev git -y
-WORKDIR /reynir/src/
-RUN git clone https://github.com/mideind/Greynir.git
+COPY src /reynir/src
 WORKDIR /reynir/src/Greynir
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
 RUN apt-get install git-lfs=2.6.1 -y
